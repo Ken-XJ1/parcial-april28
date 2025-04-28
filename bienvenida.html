@@ -1,0 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre']) || $_SESSION['tipo_usuario'] !== 'normal') {
+    header("Location: login.html");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bienvenida</title>
+</head>
+<body>
+    <h2>Bienvenido, <?php echo htmlspecialchars($_SESSION['nombre']); ?> 👋</h2>
+    <a href="logout.php">Cerrar sesión</a>
+</body>
+</html>
